@@ -1,0 +1,32 @@
+/* Клас за плавно изчезване на стария текст */
+/* .fade-out {
+  opacity: 1;
+  animation: fadeOut 4s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+} */
+
+/* Клас за плавно показване на новия текст */
+/* .fade-in {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} */
+
+.animate-fadeIn {
+  /* animation: fadeIn 0.5s ease-out forwards; */
+}

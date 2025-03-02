@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="147" viewBox="0 0 144 147" fill="none">
+  <!-- Определение на градиент -->
+  <defs>
+    <linearGradient id="paint0_linear_2447_4927" x1="0.6375" y1="47.9785" x2="46.965" y2="2.29598" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7AABE"></stop>
+      <stop offset="0.43" stop-color="#B57CEC"></stop>
+      <stop offset="0.99" stop-color="#E472D1"></stop>
+    </linearGradient>
+    <clipPath id="clip0_2447_4927">
+      <rect width="144" height="144" fill="white" transform="translate(0 0.938477)"></rect>
+    </clipPath>
+  </defs>
+
+  <!-- Лого: Вмъкнете SVG елементите на вашето лого тук -->
+  <g clip-path="url(#clip0_2447_4927)" fill-opacity="0.5">
+    <!-- Логото е увеличено три пъти и направено с 50% прозрачност -->
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120" height="120" viewBox="0 0 90 90" preserveAspectRatio="xMidYMid meet">
+      <image x="0" y="0" width="270" height="270" xlink:href="data:image/png;base64,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">
+      </image>
+    </svg>
+  </g>
+</svg>

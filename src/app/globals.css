@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.gradient-bg {
+    background: linear-gradient(-45deg, #6a0dad, #8a2be2, #4b0082, #9370db);
+    background-size: 400% 400%;
+    animation: gradientMove 8s ease infinite; /* Движението е постоянно */
+    border-radius: 12px; /* Заоблени ъгли */
+  }
+  
+  /* Анимация за подвижния градиент */
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Уверяваме се, че съдържанието вътре се вижда ясно */
+  .gradient-bg h2,
+  .gradient-bg p {
+    position: relative;
+    z-index: 1;
+  }
