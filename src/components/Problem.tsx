@@ -87,8 +87,53 @@ export const Problem = () => {
                   ${montserrat.className}
                 `}
               >
-                {/* Slide counter and navigation */}
-                <div className="flex justify-between items-center mb-8">
+                {/* Mobile navigation */}
+                <div className="flex md:hidden justify-center items-center gap-8 mb-8">
+                  <button
+                    onClick={handlePrevious}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    <svg 
+                      className="w-6 h-6 transform rotate-180" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7-7 7" />
+                    </svg>
+                  </button>
+
+                  <div className="flex items-center gap-2">
+                    <motion.span 
+                      key={currentIndex}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-3xl font-bold text-orange-500"
+                    >
+                      {String(currentIndex + 1).padStart(2, '0')}
+                    </motion.span>
+                    <span className="text-gray-500 text-lg">
+                      / {String(texts.length).padStart(2, '0')}
+                    </span>
+                  </div>
+
+                  <button
+                    onClick={handleNext}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    <svg 
+                      className="w-6 h-6" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Desktop navigation */}
+                <div className="hidden md:flex justify-between items-center mb-8">
                   <div className="flex items-center gap-4">
                     <motion.span 
                       key={currentIndex}
@@ -103,7 +148,6 @@ export const Problem = () => {
                     </span>
                   </div>
                   
-                  {/* Text navigation buttons */}
                   <div className="flex gap-4">
                     <button
                       onClick={handlePrevious}
@@ -144,7 +188,7 @@ export const Problem = () => {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className="text-2xl md:text-3xl leading-relaxed text-gray-100"
+                    className="text-xl md:text-2xl lg:text-3xl leading-relaxed text-gray-100 text-center md:text-left"
                   >
                     {texts[currentIndex]}
                   </motion.p>
