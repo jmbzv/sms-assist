@@ -87,8 +87,8 @@ export const Problem = () => {
                   ${montserrat.className}
                 `}
               >
-                {/* Mobile navigation */}
-                <div className="flex md:hidden justify-center items-center gap-8 mb-8">
+                {/* Navigation - same for mobile and desktop */}
+                <div className="flex justify-center items-center gap-8 mb-8">
                   <button
                     onClick={handlePrevious}
                     className="text-gray-400 hover:text-white transition-colors"
@@ -132,54 +132,6 @@ export const Problem = () => {
                   </button>
                 </div>
 
-                {/* Desktop navigation */}
-                <div className="hidden md:flex justify-between items-center mb-8">
-                  <div className="flex items-center gap-4">
-                    <motion.span 
-                      key={currentIndex}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="text-4xl font-bold text-orange-500"
-                    >
-                      {String(currentIndex + 1).padStart(2, '0')}
-                    </motion.span>
-                    <span className="text-gray-500 text-lg">
-                      / {String(texts.length).padStart(2, '0')}
-                    </span>
-                  </div>
-                  
-                  <div className="flex gap-4">
-                    <button
-                      onClick={handlePrevious}
-                      className="group flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-                    >
-                      <span className="text-sm uppercase tracking-wider">Предишен</span>
-                      <svg 
-                        className="w-4 h-4 transform rotate-180 transition-transform group-hover:-translate-x-1" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                    <button
-                      onClick={handleNext}
-                      className="group flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-                    >
-                      <span className="text-sm uppercase tracking-wider">Следващ</span>
-                      <svg 
-                        className="w-4 h-4 transition-transform group-hover:translate-x-1" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-
                 {/* Animated text content */}
                 <AnimatePresence mode="wait">
                   <motion.p
@@ -188,7 +140,7 @@ export const Problem = () => {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className="text-xl md:text-2xl lg:text-3xl leading-relaxed text-gray-100 text-center md:text-left"
+                    className="text-xl md:text-2xl lg:text-3xl leading-relaxed text-gray-100 text-center"
                   >
                     {texts[currentIndex]}
                   </motion.p>
