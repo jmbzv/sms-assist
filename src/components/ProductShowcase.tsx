@@ -33,37 +33,39 @@ export const ProductShowcase = () => {
 
   return (
     <div className="bg-black text-white bg-gradient-to-b from-black to-[#ff600a] py-[72px] sm:py-24">
-      <div className="container">
-        
-        {/* Header with Montserrat Alternates */}
-        <h2 className={`text-center mt-96 md:mt-12 text-5xl font-bold tracking-tighter ${montserratAlternates.className}`}>
-          ИНТУИТИВЕН ИНТЕРФЕЙС
-        </h2>
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col w-full max-w-7xl mx-auto">
+          {/* Header with Montserrat Alternates */}
+          <h2 className={`text-center mt-96 md:mt-12 text-5xl font-bold tracking-tighter ${montserratAlternates.className}`}>
+            ИНТУИТИВЕН ИНТЕРФЕЙС
+          </h2>
 
-        <div className="max-w-xl mx-auto">
-          {/* Paragraph with Montserrat */}
-          <p className={`text-xl text-white/70 text-center mt-5 ${montserrat.className}`}>
-            SMS Assistant позволява на всеки, независимо от техническите умения, бързо и лесно да настройва и управлява своите SMS известия.
-          </p>
+          <div className="max-w-xl mx-auto">
+            {/* Paragraph with Montserrat */}
+            <p className={`text-xl text-white/70 text-center mt-5 ${montserrat.className}`}>
+              SMS Assistant позволява на всеки, независимо от техническите умения, бързо и лесно да настройва и управлява своите SMS известия.
+            </p>
+          </div>
+
+          <div className="flex justify-center w-full">
+            <motion.div
+              style={{
+                opacity: opacity,
+                rotateX: rotateX,
+                transformPerspective: "800px",
+              }}
+              className="w-full"
+            >
+              <Image
+                src={appScreen}
+                ref={appImage}
+                alt="app screen"
+                className="mt-14 w-full h-auto"
+                priority
+              />
+            </motion.div>
+          </div>
         </div>
-
-        <div className="flex justify-center">
-          <motion.div
-            style={{
-              opacity: opacity,
-              rotateX: rotateX,
-              transformPerspective: "800px",
-            }}
-          >
-            <Image
-              src={appScreen}
-              ref={appImage}
-              alt="app screen"
-              className="mt-14"
-            />
-          </motion.div>
-        </div>
-
       </div>
     </div>
   );

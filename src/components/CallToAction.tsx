@@ -70,7 +70,11 @@ export const CallToAction = () => {
   };
 
   return (
-    <div className="bg-black text-white py-[72px] sm:py-24" ref={containerRef}>
+    <div 
+      id="footer-section" 
+      className="bg-black text-white py-[72px] sm:py-24" 
+      ref={containerRef}
+    >
       <div className="container max-w-xl relative">
         <motion.div style={{ translateY }}>
           <Image src={HelixImage} alt="helix" className="absolute top-6 left-[calc(100%+36px)]" />

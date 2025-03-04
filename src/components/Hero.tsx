@@ -34,6 +34,38 @@ export const Hero = () => {
     };
   }, []);
 
+  const handleScrollToFooter = () => {
+    const footer = document.querySelector('#footer-section');
+    if (!footer) return;
+
+    const start = window.pageYOffset;
+    const end = footer.getBoundingClientRect().top + window.pageYOffset;
+    const duration = 1500; // Increased duration for smoother effect
+    let startTime: number | null = null;
+
+    // Ease out cubic function
+    const easeOutCubic = (t: number): number => {
+      return 1 - Math.pow(1 - t, 3);
+    };
+
+    const animate = (currentTime: number) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+
+      const easeProgress = easeOutCubic(progress);
+      const position = start + (end - start) * easeProgress;
+
+      window.scrollTo(0, position);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  };
+
   return (
     <div className="bg-black text-white bg-[linear-gradient(to_bottom,#000,#2B1208_34%,#803508_65%,#FF9054_82%)] py-[72px] sm:py-24 relative overflow-clip">
       <div className="flex justify-center mt-8 mb-[30px]">
@@ -70,7 +102,15 @@ export const Hero = () => {
           </p>
         </div>
         <div className="flex justify-center mt-8">
-          <button className={`bg-white text-black py-3 !font-bold px-5 rounded-lg font-black font- text-center mb-24 text-l tracking-tighter ${montserratAlternates.className}`}>
+          <button 
+            onClick={handleScrollToFooter}
+            className={`
+              bg-white text-black py-3 !font-bold px-5 rounded-lg 
+              font-black text-center mb-24 text-l tracking-tighter 
+              hover:bg-orange-500 hover:text-white transition-all duration-300
+              ${montserratAlternates.className}
+            `}
+          >
             ИНТЕГРИРАЙ ДНЕС
           </button>
         </div>
