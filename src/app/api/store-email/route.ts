@@ -10,18 +10,27 @@ export async function POST(request: Request) {
   try {
     const { email } = await request.json();
     
-    const { data, error } = await supabase
+    // First check if email exists
+    const { data: existingEmail } = await supabase
       .from('subscribers')
-      .insert([{ email, subscribed_at: new Date() }]);
-      
-    if (error) throw error;
+      .select()
+      .eq('email', email)
+      .single();
+
+    // If email doesn't exist, store it
+    if (!existingEmail) {
+      const { error } = await supabase
+        .from('subscribers')
+        .insert([{ email, subscribed_at: new Date() }]);
+        
+      if (error) throw error;
+    }
     
+    // Always return success to trigger download
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Error storing email:', error);
-    return NextResponse.json(
-      { error: 'Failed to store email' },
-      { status: 500 }
-    );
+    console.error('Error handling email:', error);
+    // Still return success to allow download
+    return NextResponse.json({ success: true });
   }
 } 

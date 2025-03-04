@@ -41,8 +41,8 @@ export const CallToAction = () => {
     setError('');
 
     try {
-      // 1. Send email to your backend/API
-      const response = await fetch('/api/store-email', {
+      // 1. Try to store email (if it doesn't exist)
+      await fetch('/api/store-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -50,11 +50,7 @@ export const CallToAction = () => {
         body: JSON.stringify({ email }),
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to store email');
-      }
-
-      // 2. Trigger file download
+      // 2. Trigger file download (regardless of email storage success)
       const link = document.createElement('a');
       link.href = '/path-to-your-plugin-file.zip'; // Replace with actual file path
       link.download = 'sms-assist-plugin.zip'; // Replace with actual filename
@@ -66,7 +62,7 @@ export const CallToAction = () => {
       setEmail('');
       
     } catch (err) {
-      setError('Something went wrong. Please try again.');
+      setError('Грешка при изтеглянето. Моля опитайте отново.');
       console.error('Error:', err);
     } finally {
       setIsLoading(false);
