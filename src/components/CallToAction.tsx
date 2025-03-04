@@ -50,10 +50,10 @@ export const CallToAction = () => {
         body: JSON.stringify({ email }),
       });
 
-      // 2. Trigger file download (regardless of email storage success)
+      // 2. Trigger file download
       const link = document.createElement('a');
-      link.href = '/path-to-your-plugin-file.zip'; // Replace with actual file path
-      link.download = 'sms-assist-plugin.zip'; // Replace with actual filename
+      link.href = '/downloads/sms-assist-plugin.zip'; // Updated path
+      link.download = 'sms-assist-plugin.zip';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
